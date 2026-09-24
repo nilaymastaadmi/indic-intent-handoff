@@ -14,3 +14,5 @@ phase1/arxiv_q*.xml
 phase1/s2_q*.json
 phase1/exa_q*.txt
 phase1/load_before.txt
+cache/
+models/
