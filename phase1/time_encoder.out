@@ -1,0 +1,20 @@
+torch 2.14.0+cpu threads 12 interop 12
+tokenizer XLMRobertaTokenizer vocab 250002
+tokens en-US: n=11514 mean=13.1 median=13 p95=21 max=48 words/utt=6.9 tokens/word=1.18 chars/utt=35.0 unk_tokens=0
+tokens hi-IN: n=11514 mean=14.8 median=14 p95=23 max=61 words/utt=7.6 tokens/word=1.29 chars/utt=35.8 unk_tokens=0
+tokens ta-IN: n=11514 mean=15.6 median=15 p95=26 max=56 words/utt=5.3 tokens/word=2.01 chars/utt=42.6 unk_tokens=0
+tokens te-IN: n=11514 mean=16.1 median=15 p95=26 max=66 words/utt=5.8 tokens/word=1.93 chars/utt=38.5 unk_tokens=29
+tokens kn-IN: n=11514 mean=15.9 median=15 p95=26 max=61 words/utt=5.4 tokens/word=2.04 chars/utt=38.7 unk_tokens=0
+tokens ml-IN: n=11514 mean=16.1 median=15 p95=27 max=62 words/utt=5.3 tokens/word=2.12 chars/utt=43.4 unk_tokens=0
+params total=117653760 embeddings=96212352 non-embedding=21441408
+LoRA r=8 on query,value: trainable=168246 (0.143% of encoder params; head included)
+=== repeat 1
+train en-US: 50 steps bs=32 total=35.1s per_step mean=0.703s median=0.689s max=1.194s
+train 6-locale mix: 50 steps bs=32 total=32.8s per_step mean=0.657s median=0.636s max=1.044s
+infer en-US: 1000 utts bs=64 total=6.6s (6.56 ms/utt)
+infer 6-locale mix: 1000 utts bs=64 total=7.2s (7.18 ms/utt)
+=== repeat 2
+train en-US: 50 steps bs=32 total=32.6s per_step mean=0.652s median=0.628s max=0.996s
+train 6-locale mix: 50 steps bs=32 total=37.4s per_step mean=0.748s median=0.714s max=1.367s
+infer en-US: 1000 utts bs=64 total=6.1s (6.09 ms/utt)
+infer 6-locale mix: 1000 utts bs=64 total=7.1s (7.06 ms/utt)

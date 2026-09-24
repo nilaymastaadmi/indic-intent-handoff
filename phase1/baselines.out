@@ -1,0 +1,16 @@
+XLM-R zero-shot gap (its own en-US run 85.2 minus locale), Table 8:
+  hi 8.1, ta 19.6, te 19.2, kn 17.0, ml 17.6 | >=10 on 4 of 5, >=15 on 4 of 5
+  locale with the smallest zero-shot drop, per model (T2T, Enc, XLM-R): ['hi', 'hi', 'hi']
+XLM-R full-data minus zero-shot, Table 8: hi 8.7, ta 17.9, te 18.5, kn 15.8, ml 17.5
+5-locale means: XLM-R full 84.6 | XLM-R zero (T8) 68.9 | XLM-R base zero (T19) 67.7 | MuRIL base zero (T19) 77.6 | IndicBERT v2 zero (T19) 79.1 | e5-small frozen 8-shot (MTEB) 59.7
+e5-small MTEB en 70.3; en minus 5-locale mean 10.6
+per epoch: English 4.5 min, joint 26.9 min; English run 23.7 min, joint run 56.8 min
+| Frozen embeddings, 6 locales x all splits (measured rate) | 1 | 11.9 | 12 |
+| TF-IDF + LR and frozen + LR fits, both regimes (ESTIMATE, unmeasured) | 1 | 15.0 | 15 |
+| Pipeline check: MTEB protocol, 8 per intent x 10 draws (ESTIMATE) | 1 | 2.0 | 2 |
+| LoRA lr tuning, English dev, seed 0, 3 learning rates x 5 epochs | 3 | 23.7 | 71 |
+| LoRA English-only, seeds 1 and 2 (seed 0 reused from tuning) | 2 | 23.7 | 47 |
+| LoRA joint 6-locale, 3 seeds x 2 epochs | 3 | 56.8 | 170 |
+| Sealed test pass: 7 encoders x 6 locales, both OOD scores | 7 | 2.1 | 15 |
+| Smoke run + bootstrap + RESULTS.md (ESTIMATE) | 1 | 15.0 | 15 |
+TOTAL compute 347 min = 5.8 h at measured speed; 7.5 h if 30% slower (largest single step seen: 1.367 s)

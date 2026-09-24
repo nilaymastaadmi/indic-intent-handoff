@@ -1,0 +1,4 @@
+train-only intents: ['cooking_query'] [4]
+scenarios: 18
+smallest test intents: [('general_greet', 1), ('iot_hue_lighton', 3), ('music_dislikeness', 4), ('audio_volume_other', 6), ('music_settings', 6), ('iot_wemo_on', 10), ('audio_volume_down', 11), ('email_addcontact', 12)]
+median test/intent 35

@@ -1,0 +1,16 @@
+.venv/
+data/
+papers/
+__pycache__/
+*.err
+# third-party copies fetched in phase 1; phase1/SOURCES.md records URL, status and anchor instead
+phase1/massive.py
+phase1/hf_README.md
+phase1/hf_multi3nlu_README.md
+phase1/mteb_*.py
+phase1/insights22.html
+phase1/ar_*.html
+phase1/arxiv_q*.xml
+phase1/s2_q*.json
+phase1/exa_q*.txt
+phase1/load_before.txt

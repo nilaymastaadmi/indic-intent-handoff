@@ -1,0 +1,42 @@
+locale files: 52
+locales: af-ZA am-ET ar-SA az-AZ bn-BD ca-ES cy-GB da-DK de-DE el-GR en-US es-ES fa-IR fi-FI fr-FR he-IL hi-IN hu-HU hy-AM id-ID is-IS it-IT ja-JP jv-ID ka-GE km-KH kn-IN ko-KR lv-LV ml-IN mn-MN ms-MY my-MM nb-NO nl-NL pl-PL pt-PT ro-RO ru-RU sl-SL sq-AL sv-SE sw-KE ta-IN te-IN th-TH tl-PH tr-TR ur-PK vi-VN zh-CN zh-TW
+en-US bytes 3904197 rows 16521 {'test': 2974, 'train': 11514, 'dev': 2033} intents 60
+hi-IN bytes 13832111 rows 16521 {'test': 2974, 'train': 11514, 'dev': 2033} intents 60
+ta-IN bytes 14674447 rows 16521 {'test': 2974, 'train': 11514, 'dev': 2033} intents 60
+te-IN bytes 14239239 rows 16521 {'test': 2974, 'train': 11514, 'dev': 2033} intents 60
+kn-IN bytes 14244438 rows 16521 {'test': 2974, 'train': 11514, 'dev': 2033} intents 60
+ml-IN bytes 14761014 rows 16521 {'test': 2974, 'train': 11514, 'dev': 2033} intents 60
+keys: ['annot_utt', 'id', 'intent', 'locale', 'partition', 'scenario', 'utt', 'worker_id']
+--- first 3 rows en-US
+{"id": "0", "locale": "en-US", "partition": "test", "intent": "alarm_set", "utt": "wake me up at five am this week"}
+{"id": "1", "locale": "en-US", "partition": "train", "intent": "alarm_set", "utt": "wake me up at nine am on friday"}
+{"id": "2", "locale": "en-US", "partition": "train", "intent": "alarm_set", "utt": "set an alarm for two hours from now"}
+--- first 3 rows hi-IN
+{"id": "0", "locale": "hi-IN", "partition": "test", "intent": "alarm_set", "utt": "मुझे इस सप्ताह सुबह पांच बजे जगा दो"}
+{"id": "1", "locale": "hi-IN", "partition": "train", "intent": "alarm_set", "utt": "शुक्रवार को सुबह नौ बजे मुझे जगा दो"}
+{"id": "2", "locale": "hi-IN", "partition": "train", "intent": "alarm_set", "utt": "अभी से दो घंटे के लिए अलार्म लगाओ"}
+--- first 3 rows ta-IN
+{"id": "0", "locale": "ta-IN", "partition": "test", "intent": "alarm_set", "utt": "இந்த வாரம் காலை ஐந்து மணிக்கு என்னை எழுப்பு"}
+{"id": "1", "locale": "ta-IN", "partition": "train", "intent": "alarm_set", "utt": "வெள்ளிக்கிழமை காலை ஒன்பது மணிக்கு என்னை எழுப்புங்கள்"}
+{"id": "2", "locale": "ta-IN", "partition": "train", "intent": "alarm_set", "utt": "இப்போதிலிருந்து இரண்டு மணிநேரத்திற்கு அலாரத்தை அமைக்கவும்"}
+--- first 3 rows te-IN
+{"id": "0", "locale": "te-IN", "partition": "test", "intent": "alarm_set", "utt": "ఈ వారం ఉదయం ఐదు గంటలకు నన్ను మేల్కొలపండి"}
+{"id": "1", "locale": "te-IN", "partition": "train", "intent": "alarm_set", "utt": "శుక్రవారం ఉదయం తొమ్మిది గంటలు కి నన్ను నిద్ర లేపు"}
+{"id": "2", "locale": "te-IN", "partition": "train", "intent": "alarm_set", "utt": "ఇప్పటి నుండి రెండు గంటలకు అలారం సెట్ చేయి"}
+--- first 3 rows kn-IN
+{"id": "0", "locale": "kn-IN", "partition": "test", "intent": "alarm_set", "utt": "ಈ ವಾರ ಬೆಳಗ್ಗೆ ಐದು ಗಂಟೆಗೆ ನನ್ನನ್ನು ಎದ್ದೇಳಿ"}
+{"id": "1", "locale": "kn-IN", "partition": "train", "intent": "alarm_set", "utt": "ಶುಕ್ರವಾರ ಬೆಳಗ್ಗೆ ಒಂಬತ್ತು ಗಂಟೆಗೆ ನನ್ನನ್ನು ಎಬ್ಬಿಸಿ ಗುರಿ ಅಲಾರಂ ಹೊಂದಿಸುವ ಕುರಿತು ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಸಹಾಯಕರನ್ನು ಕೇಳಲಾಗುತ್ತಿದೆ"}
+{"id": "2", "locale": "kn-IN", "partition": "train", "intent": "alarm_set", "utt": "ಈಗಿನಿಂದ ಎರಡು ಗಂಟೆಗಳು ಕಾಲ ಅಲಾರಾಂ ಹೊಂದಿಸಿ"}
+--- first 3 rows ml-IN
+{"id": "0", "locale": "ml-IN", "partition": "test", "intent": "alarm_set", "utt": "ഈ ആഴ്ച പുലർച്ചെ അഞ്ച് മണിക്ക് എന്നെ ഉണർത്തുക"}
+{"id": "1", "locale": "ml-IN", "partition": "train", "intent": "alarm_set", "utt": "വെള്ളിയാഴ്ച രാവിലെ ഒമ്പത് മണിക്ക് എന്നെ ഉണർത്തുക"}
+{"id": "2", "locale": "ml-IN", "partition": "train", "intent": "alarm_set", "utt": "ഇപ്പോൾ മുതൽ രണ്ട് മണിക്കൂർ ഒരു അലാറം സജ്ജമാക്കുക"}
+hi-IN: id sets equal to en-US: True; ids 16521; partition/intent mismatches: 0
+ta-IN: id sets equal to en-US: True; ids 16521; partition/intent mismatches: 0
+te-IN: id sets equal to en-US: True; ids 16521; partition/intent mismatches: 0
+kn-IN: id sets equal to en-US: True; ids 16521; partition/intent mismatches: 0
+ml-IN: id sets equal to en-US: True; ids 16521; partition/intent mismatches: 0
+train min/max per intent 4 810 n intents 60
+dev min/max per intent 2 131 n intents 59
+test min/max per intent 1 209 n intents 59
+en-US test utts whose exact text appears in train: 21 of 2974
