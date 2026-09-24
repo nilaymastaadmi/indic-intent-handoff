@@ -1,6 +1,7 @@
 """Re-fetch every source cited in RESEARCH.md; record HTTP status, bytes, and whether the anchor
 string is present in the fetched content (PDFs via pdftotext). Writes phase1/SOURCES.md.
-The last row is a planted false anchor: the check must report it MISSING, or the checker is broken."""
+The last two rows are planted defects, one per failure branch: a false anchor on a real page must be
+MISSING, and a URL that cannot be fetched must be FETCH FAILED, or the checker is broken."""
 import re, subprocess, sys, urllib.request, tempfile, os, datetime
 UA = {"User-Agent": "Mozilla/5.0 (research provenance check; toshniwalnilay@gmail.com)"}
 S = [  # (label, url, anchor, pdf_page or None)
@@ -24,6 +25,7 @@ S = [  # (label, url, anchor, pdf_page or None)
  ("XLM-R base API (HF)", "https://huggingface.co/api/models/FacebookAI/xlm-roberta-base?expand[]=safetensors", "278885778", None),
  ("IndicBERT v2 config (HF)", "https://huggingface.co/ai4bharat/IndicBERTv2-MLM-only/resolve/main/config.json", "250000", None),
  ("PLANTED FALSE ANCHOR (must be MISSING)", "https://arxiv.org/pdf/1610.02136", "LoRA beats every baseline on Tamil", None),
+ ("PLANTED DEAD URL (must be FETCH FAILED)", "https://huggingface.co/api/datasets/AmazonScience/this-dataset-does-not-exist-2026", "anything", None),
 ]
 norm = lambda s: re.sub(r"\s+", " ", s)
 cache, out = {}, []
@@ -62,12 +64,12 @@ for label, url, anchor, page in S:
             found = "FOUND" if norm(anchor) in norm(body.decode("utf-8", "replace")) else "MISSING"
     out.append(f"| {label} | {url} | {status} | {len(body):,} | {anchor or '(binary; sha256 recorded separately)'} | {found} {where} |")
     print(out[-1], flush=True)
-planted_ok = out[-1].rstrip(" |").endswith("MISSING")
-real_missing = [o for o in out[:-1] if "| MISSING" in o or "| FETCH FAILED" in o]
+planted_ok = "| MISSING" in out[-2] and "| FETCH FAILED" in out[-1]
+real_missing = [o for o in out[:-2] if "| MISSING" in o or "| FETCH FAILED" in o]
 with open("phase1/SOURCES.md", "w", encoding="utf-8") as f:
     f.write(f"# Sources, re-fetched {datetime.datetime.now():%Y-%m-%d %H:%M} IST by phase1/verify_sources.py\n\n")
     f.write("| Source | URL | HTTP | Bytes | Anchor string | Anchor check |\n|---|---|---|---|---|---|\n")
     f.write("\n".join(out) + "\n\n")
-    f.write(f"Planted false anchor reported MISSING: {planted_ok}. Real sources with a missing anchor: {len(real_missing)} of {len(out)-1}.\n")
-print("planted false anchor caught:", planted_ok, "| real missing:", len(real_missing), "of", len(out) - 1)
+    f.write(f"Both planted defects caught (false anchor MISSING, dead URL FETCH FAILED): {planted_ok}. Real sources failing: {len(real_missing)} of {len(out)-2}.\n")
+print("both planted defects caught:", planted_ok, "| real failing:", len(real_missing), "of", len(out) - 2)
 sys.exit(0 if planted_ok and not real_missing else 1)

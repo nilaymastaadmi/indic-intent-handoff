@@ -2,8 +2,8 @@
 
 2026-09-24, Nilay Toshniwal. Built with AI assistance (Claude Code). Every number below is either
 printed by a script in `phase1/` (named beside it) or transcribed from a cited table whose anchor
-`phase1/verify_sources.py` re-fetched and found (19 of 19 sources, HTTP 200; a planted false anchor
-was correctly reported missing). Full URL / status / anchor list: `phase1/SOURCES.md`.
+`phase1/verify_sources.py` re-fetched and found (19 of 19 sources, HTTP 200, 2 via the GitHub API after
+raw.githubusercontent.com reset the connection; both planted defects, a false anchor and a dead URL, were caught). Full URL / status / anchor list: `phase1/SOURCES.md`.
 
 **Verdict: GO**, with multilingual-e5-small, on MASSIVE 1.1, inside the 12 h budget (section 5).
 The exact study is not published (section 3), but its zero-shot half is: IndicXTREME already fine-tunes
