@@ -16,3 +16,4 @@ phase1/exa_q*.txt
 phase1/load_before.txt
 cache/
 models/
+synthetic/
