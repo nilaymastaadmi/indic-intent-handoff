@@ -87,6 +87,8 @@ def main():
         void.append(f"V3: {len(failed)} A3 seed(s) below 50% English dev accuracy")
     if n_unknown < 100:
         void.append(f"V4: only {n_unknown} unknown utterances per locale")
+    a2_void = v1 is None or abs(v1["mean_acc"] - v1["reference"]) > v1["tolerance"]
+    lab = {a: f"{a} (VOID)" if a == "A2" and a2_void else a for a in ("A0", "A1", "A2", "A3")}
     out += ["", f"V1 pipeline check: {v1['mean_acc']:.1%} (reference 70.3% +/- 2.0)" if v1 else "V1: not run",
             "**VOID: " + "; ".join(void) + "**" if void else "Void checks V1 to V4 passed.", ""]
 
@@ -94,10 +96,23 @@ def main():
             "| Arm | Regime | " + " | ".join(LOCALES) + " |", "|---|---|" + "---|" * len(LOCALES)]
     for (a, g), ps in arms.items():
         if ps:
-            out.append(f"| {a} | {g} | " + " | ".join(fmt(ps, l, n_known) for l in LOCALES) + " |")
+            out.append(f"| {lab[a]} | {g} | " + " | ".join(fmt(ps, l, n_known) for l in LOCALES) + " |")
     out += ["", "Macro-F1 (mean over seeds): " + "; ".join(
         f"{a}-{g} en {np.mean([macro_f1([r['gold'] for r in p[('test', 'en-US')]['known']], [r['pred'] for r in p[('test', 'en-US')]['known']]) for p in ps]):.1%}"
         for (a, g), ps in arms.items() if ps)]
+
+    out += ["", "## Paired difference, A3 LoRA minus A2 frozen (points, 95% bootstrap CI, A3 seed range; AMENDMENTS.md A2)"
+            + ("; A2 VOID by V1, printed for the record and not interpreted" if a2_void else ""),
+            "", "| Regime | " + " | ".join(LOCALES) + " |", "|---|" + "---|" * len(LOCALES)]
+    for g in ("en", "joint"):
+        a3, a2 = arms[("A3", g)], arms[("A2", g)]
+        if a3 and a2:
+            cells = []
+            for l in LOCALES:
+                lo, hi = bootstrap(lambda i: mean_acc(a3, l, i) - mean_acc(a2, l, i), n_known)
+                ds = [100 * (acc_on(p, l) - acc_on(a2[0], l)) for p in a3]
+                cells.append(f"{np.mean(ds):+.1f} [{100 * lo:+.1f}, {100 * hi:+.1f}], seeds {min(ds):+.1f} to {max(ds):+.1f}")
+            out.append(f"| {g} | " + " | ".join(cells) + " |")
 
     a3en, a3j, a2en = arms[("A3", "en")], arms[("A3", "joint")], arms[("A2", "en")]
     gaps, rec = {}, {}
@@ -122,7 +137,7 @@ def main():
             for l in LOCALES:
                 h = {m: float(np.mean([handoff(p, l, key)[m] for p in ps])) for m in handoff(ps[0], l, key)}
                 hand[(a, g, key, l)] = h
-                out.append(f"| {a} | {g} | {key} | {l} | {h['auroc']:.3f} | {h['accept95']:.1%} | "
+                out.append(f"| {lab[a]} | {g} | {key} | {l} | {h['auroc']:.3f} | {h['accept95']:.1%} | "
                            f"{h['retain_at_en_thr']:.1%} | {h['caught_at_en_thr']:.1%} |")
 
     def verdict(ok):
@@ -132,7 +147,7 @@ def main():
         d = mean_acc(a3en, "en-US") - mean_acc(a2en, "en-US")
         lo, hi = bootstrap(lambda i: mean_acc(a3en, "en-US", i) - mean_acc(a2en, "en-US", i), n_known)
         out.append(f"- P1 LoRA beats frozen by >= 5.0 points in English: {100 * d:+.1f} points "
-                   f"[{100 * lo:+.1f}, {100 * hi:+.1f}]: {verdict(d >= 0.05)}")
+                   f"[{100 * lo:+.1f}, {100 * hi:+.1f}]: {'VOID (V1 failed, so A2 is void)' if a2_void else verdict(d >= 0.05)}")
     if gaps:
         n10 = sum(g >= 0.10 for g in gaps.values())
         smallest = min(gaps, key=gaps.get)
@@ -153,7 +168,7 @@ def main():
     if a3en:
         zs = float(np.mean([mean_acc(a3en, l) for l in INDIC]))
         out.append(f"- P7 EN-only 5-locale zero-shot mean in [55, 70]: {zs:.1%}, {verdict(0.55 <= zs <= 0.70)}")
-    (RES / "RESULTS.md").write_text("\n".join(out) + "\n", encoding="utf-8")
+    (RES / "RESULTS.md").write_text("\n".join(out) + "\n", encoding="utf-8", newline="\n")
     print("\n".join(out))
 
 

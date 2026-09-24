@@ -1,0 +1,73 @@
+pre-run 2026-09-24 13:28:29 cpu_load=28% clock=2200MHz
+keep-awake held 13:28:30
+=== stage embed 13:28:30
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3072.21it/s]
+en-US train: (11514, 384) 56s
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2789.21it/s]
+en-US dev: (2033, 384) 10s
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2667.16it/s]
+hi-IN train: (11514, 384) 70s
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2863.00it/s]
+hi-IN dev: (2033, 384) 12s
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2767.90it/s]
+ta-IN train: (11514, 384) 76s
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2621.52it/s]
+ta-IN dev: (2033, 384) 14s
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2983.55it/s]
+te-IN train: (11514, 384) 80s
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2831.15it/s]
+te-IN dev: (2033, 384) 15s
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2325.29it/s]
+kn-IN train: (11514, 384) 83s
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2549.10it/s]
+kn-IN dev: (2033, 384) 15s
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3133.63it/s]
+ml-IN train: (11514, 384) 80s
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3087.31it/s]
+ml-IN dev: (2033, 384) 15s
+=== stage tune 13:37:27
+A1 en 0.3 0.7705722070844687
+A1 en 1 0.828882833787466
+A1 en 3 0.8539509536784741
+A2 en 0.3 0.6850136239782016
+A2 en 1 0.8185286103542234
+A2 en 3 0.8615803814713896
+A2 en 10 0.8702997275204359
+A1 joint 0.3 0.7700272479564033
+A1 joint 1 0.8305177111716622
+A1 joint 3 0.8610354223433242
+A2 joint 0.3 0.8163487738419618
+A2 joint 1 0.8474114441416893
+A2 joint 3 0.8517711171662126
+A2 joint 10 0.8550408719346049
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3360.18it/s]
+A3 en 0.0001 0 0.5297002724795641
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3314.14it/s]
+A3 en 0.0003 0 0.7754768392370572
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3486.49it/s]
+A3 en 0.001 0 0.8664850136239782
+=== stage train 14:50:04
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3348.12it/s]
+A3 en 0.001 1 0.8670299727520436
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3276.35it/s]
+A3 en 0.001 2 0.8681198910081744
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3657.90it/s]
+A3 joint 0.001 0 0.8692098092643051
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  45%|████▍     | 89/199 [00:00<00:00, 887.64it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1839.09it/s]
+A3 joint 0.001 1 0.8664850136239782
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3118.14it/s]
+A3 joint 0.001 2 0.8643051771117166
+=== embed+tune+train done 18:47:53
+keep-awake held 18:48:16
+pre-test 2026-09-24 19:59:33 cpu_load=42% clock=2200MHz
+2
+keep-awake held 19:59:39
+preds A0_en 19679
+preds A1_en 19679
+preds A2_en 19679
+preds A3_en_s0 19679
+preds A3_en_s1 19679
+preds A3_en_s2 19679
+preds A0_joint 19679
+preds A1_joint 19679
+preds A2_joint 19679

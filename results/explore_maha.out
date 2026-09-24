@@ -1,0 +1,12 @@
+en-US dev: 1835 known, 198 unknown; frozen e5-small, L2-normalised
+MSP, logistic regression C = 10 (A2's tuned C): AUROC 0.763
+Mahalanobis, shared covariance, all 384 directions (A2 as run): AUROC 0.593
+Euclidean distance to the nearest intent centre: AUROC 0.650
+within-intent covariance eigenvalues: largest 5.16e-03, 50th 7.83e-04, smallest -9.94e-13 (ratio -5184347136x)
+eigenvalues below 1e-8 x largest: 1 (numpy pinv's default cut-off is 1e-15 x largest, so these are inverted, not dropped)
+Mahalanobis on the top 10 variance directions: AUROC 0.501
+Mahalanobis on the top 50 variance directions: AUROC 0.599
+Mahalanobis on the top 100 variance directions: AUROC 0.639
+Mahalanobis on the top 200 variance directions: AUROC 0.612
+Mahalanobis on the top 383 variance directions: AUROC 0.593
+Mahalanobis on the bottom 10 variance directions: AUROC 0.549

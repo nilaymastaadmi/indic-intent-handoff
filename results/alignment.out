@@ -1,0 +1,6 @@
+en-US dev sentences: 2033; embeddings L2-normalised, so dot product = cosine
+hi-IN: translation cosine 0.888, random-pair cosine 0.766, translation is the nearest of 2033 English sentences for 75.3%
+ta-IN: translation cosine 0.864, random-pair cosine 0.764, translation is the nearest of 2033 English sentences for 62.8%
+te-IN: translation cosine 0.870, random-pair cosine 0.764, translation is the nearest of 2033 English sentences for 66.9%
+kn-IN: translation cosine 0.875, random-pair cosine 0.766, translation is the nearest of 2033 English sentences for 71.5%
+ml-IN: translation cosine 0.874, random-pair cosine 0.766, translation is the nearest of 2033 English sentences for 67.8%

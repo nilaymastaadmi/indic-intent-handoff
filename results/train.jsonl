@@ -1,0 +1,5 @@
+{"arm": "A3", "regime": "en", "lr": 0.001, "seed": 1, "dev_acc_en": 0.8670299727520436, "trainable": 168246, "minutes": 20.1}
+{"arm": "A3", "regime": "en", "lr": 0.001, "seed": 2, "dev_acc_en": 0.8681198910081744, "trainable": 168246, "minutes": 20.0}
+{"arm": "A3", "regime": "joint", "lr": 0.001, "seed": 0, "dev_acc_en": 0.8692098092643051, "trainable": 168246, "minutes": 66.3}
+{"arm": "A3", "regime": "joint", "lr": 0.001, "seed": 1, "dev_acc_en": 0.8664850136239782, "trainable": 168246, "minutes": 66.7}
+{"arm": "A3", "regime": "joint", "lr": 0.001, "seed": 2, "dev_acc_en": 0.8643051771117166, "trainable": 168246, "minutes": 64.6}

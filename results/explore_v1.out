@@ -1,0 +1,4 @@
+en-US dev, 2033 utterances, 59 intents; MTEB protocol as in iih.run.stage_v1
+raw embedding norm: mean 4.74
+L2-normalised (as run): 65.6%
+not normalised:         71.5%

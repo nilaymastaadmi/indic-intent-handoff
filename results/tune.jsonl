@@ -1,0 +1,17 @@
+{"arm": "A1", "regime": "en", "C": 0.3, "dev_acc_en": 0.7705722070844687}
+{"arm": "A1", "regime": "en", "C": 1, "dev_acc_en": 0.828882833787466}
+{"arm": "A1", "regime": "en", "C": 3, "dev_acc_en": 0.8539509536784741}
+{"arm": "A2", "regime": "en", "C": 0.3, "dev_acc_en": 0.6850136239782016}
+{"arm": "A2", "regime": "en", "C": 1, "dev_acc_en": 0.8185286103542234}
+{"arm": "A2", "regime": "en", "C": 3, "dev_acc_en": 0.8615803814713896}
+{"arm": "A2", "regime": "en", "C": 10, "dev_acc_en": 0.8702997275204359}
+{"arm": "A1", "regime": "joint", "C": 0.3, "dev_acc_en": 0.7700272479564033}
+{"arm": "A1", "regime": "joint", "C": 1, "dev_acc_en": 0.8305177111716622}
+{"arm": "A1", "regime": "joint", "C": 3, "dev_acc_en": 0.8610354223433242}
+{"arm": "A2", "regime": "joint", "C": 0.3, "dev_acc_en": 0.8163487738419618}
+{"arm": "A2", "regime": "joint", "C": 1, "dev_acc_en": 0.8474114441416893}
+{"arm": "A2", "regime": "joint", "C": 3, "dev_acc_en": 0.8517711171662126}
+{"arm": "A2", "regime": "joint", "C": 10, "dev_acc_en": 0.8550408719346049}
+{"arm": "A3", "regime": "en", "lr": 0.0001, "seed": 0, "dev_acc_en": 0.5297002724795641, "trainable": 168246, "minutes": 20.5}
+{"arm": "A3", "regime": "en", "lr": 0.0003, "seed": 0, "dev_acc_en": 0.7754768392370572, "trainable": 168246, "minutes": 20.8}
+{"arm": "A3", "regime": "en", "lr": 0.001, "seed": 0, "dev_acc_en": 0.8664850136239782, "trainable": 168246, "minutes": 20.9}
